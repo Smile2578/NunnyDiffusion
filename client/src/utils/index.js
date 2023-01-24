@@ -17,7 +17,7 @@ export async function downloadImage(_id, photo) {
 
 export async function deleteCard(_id) {
   try {
-    const response = await fetch(`/api/posts/${_id}`, {
+    const response = await fetch(`${_id}`, {
       method: 'DELETE'
     });
     if (response.ok) {
