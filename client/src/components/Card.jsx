@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { download } from '../assets';
-import { downloadImage } from '../utils';
+import { download, del } from '../assets';
+import { downloadImage, deleteCard } from '../utils';
 
 const Card = ({ _id, name, prompt, photo }) => (
   <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card">
@@ -21,6 +21,9 @@ const Card = ({ _id, name, prompt, photo }) => (
         <button type="button" onClick={() => downloadImage(_id, photo)} className="outline-none bg-transparent border-none">
           <img src={download} alt="download" className="w-6 h-6 object-contain invert" />
         </button>
+        <button type="button" onClick={() => deleteCard(_id)} className="outline-none bg-transparent border-none">
+        <img src={ del } alt="delete" className="w-6 h-6 object-contain" />
+</button>
       </div>
     </div>
   </div>
