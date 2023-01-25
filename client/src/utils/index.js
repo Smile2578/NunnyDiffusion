@@ -1,6 +1,5 @@
 import FileSaver from 'file-saver';
-import { surpriseMePrompts } from '../constants';
-import axios from 'axios';
+import { surpriseMePrompts } from '../constant'
 
 export function getRandomPrompt(prompt) {
   const randomIndex = Math.floor(Math.random() * surpriseMePrompts.length);
@@ -15,17 +14,3 @@ export async function downloadImage(_id, photo) {
   FileSaver.saveAs(photo, `download-${_id}.jpg`);
 }
 
-export async function deleteCard(_id) {
-  try {
-    const response = await fetch(`https://nunnydiffusion.vercel.app/api/posts/${_id}`, {
-      method: 'DELETE'
-    });
-    if (response.ok) {
-      console.log("Card deleted successfully");
-    } else {
-      console.error("Failed to delete card");
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
